@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── Light mode palette (default) ─────────────────────────────────────────────
+:root {
+  --bd-bg:              #eef0f8;
+  --bd-surface:         #ffffff;
+  --bd-surface-alt:     #f5f7ff;
+  --bd-panel-header-a:  #e8eaf6;
+  --bd-panel-header-b:  #f0f2ff;
+  --bd-border:          #dde0f5;
+  --bd-border-light:    #eceff1;
+
+  --bd-text-heading:    #1a237e;
+  --bd-text-body:       #37474f;
+  --bd-text-secondary:  #546e7a;
+  --bd-text-muted:      #90a4ae;
+
+  --bd-accent:          #3949ab;
+  --bd-accent-hover:    #283593;
+  --bd-accent-light:    #c5cae9;
+  --bd-accent-bg:       #e8eaf6;
+  --bd-accent-tag-bg:   #eceff1;
+  --bd-accent-tag-text: #546e7a;
+
+  --bd-input-bg:        #fafafa;
+  --bd-input-border:    #e0e0e0;
+  --bd-item-bg:         #f5f7ff;
+  --bd-item-hover:      #e8eaf6;
+  --bd-progress-track:  #eceff1;
+
+  --bd-error-text:      #c62828;
+  --bd-error-bg:        #ffebee;
+  --bd-error-border:    #ef9a9a;
+  --bd-remove-btn:      #f48fb1;
+  --bd-remove-btn-hover:#c62828;
+
+  --bd-shadow-card:     0 4px 24px rgba(0, 0, 0, 0.07);
+  --bd-shadow-hover:    0 10px 36px rgba(0, 0, 0, 0.13);
+
+  color: var(--bd-text-body);
+  background: var(--bd-bg);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+// ── Dark mode palette ─────────────────────────────────────────────────────────
+html.dark {
+  --bd-bg:              #0d1117;
+  --bd-surface:         #161b22;
+  --bd-surface-alt:     #1c2128;
+  --bd-panel-header-a:  #1c2128;
+  --bd-panel-header-b:  #21262d;
+  --bd-border:          #30363d;
+  --bd-border-light:    #21262d;
+
+  --bd-text-heading:    #79c0ff;
+  --bd-text-body:       #c9d1d9;
+  --bd-text-secondary:  #8b949e;
+  --bd-text-muted:      #6e7681;
+
+  --bd-accent:          #58a6ff;
+  --bd-accent-hover:    #79c0ff;
+  --bd-accent-light:    #1f6feb;
+  --bd-accent-bg:       #0c2a4a;
+  --bd-accent-tag-bg:   #1c2128;
+  --bd-accent-tag-text: #8b949e;
+
+  --bd-input-bg:        #0d1117;
+  --bd-input-border:    #30363d;
+  --bd-item-bg:         #1c2128;
+  --bd-item-hover:      #21262d;
+  --bd-progress-track:  #21262d;
+
+  --bd-error-text:      #ff8a80;
+  --bd-error-bg:        #2c1010;
+  --bd-error-border:    #6b1a1a;
+  --bd-remove-btn:      #f48fb1;
+  --bd-remove-btn-hover:#ff6b9d;
+
+  --bd-shadow-card:     0 4px 24px rgba(0, 0, 0, 0.4);
+  --bd-shadow-hover:    0 10px 36px rgba(0, 0, 0, 0.6);
+}
+
+// ── Angular Material dark mode overrides ─────────────────────────────────────
+// mat-select trigger text and arrow
+html.dark .mat-mdc-select-value,
+html.dark .mat-mdc-select-value-text,
+html.dark .mat-mdc-select-arrow {
+  color: var(--bd-text-body);
+}
+
+// Outline border on the form field
+html.dark .mdc-notched-outline__leading,
+html.dark .mdc-notched-outline__notch,
+html.dark .mdc-notched-outline__trailing {
+  border-color: var(--bd-border) !important;
+}
+
+// Dropdown panel background
+html.dark .mat-mdc-select-panel,
+html.dark .mdc-menu-surface {
+  background: var(--bd-surface) !important;
+}
+
+// Option text in dropdown
+html.dark .mat-mdc-option .mdc-list-item__primary-text {
+  color: var(--bd-text-body);
+}
+
+// Hovered option background
+html.dark .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+html.dark .mat-mdc-option:focus:not(.mdc-list-item--disabled) {
+  background: var(--bd-item-hover) !important;
+}
+
+// Selected option
+html.dark .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+  background: var(--bd-accent-bg) !important;
+
+  .mdc-list-item__primary-text {
+    color: var(--bd-accent) !important;
+  }
+}
+
+// mat-spinner
+html.dark .mat-mdc-progress-spinner circle {
+  stroke: var(--bd-accent);
+}

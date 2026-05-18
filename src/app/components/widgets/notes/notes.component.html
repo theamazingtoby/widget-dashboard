@@ -1,0 +1,12 @@
+<div class="notes-widget">
+  <textarea
+    class="notes-area"
+    placeholder="Start typing your notes here..."
+    [value]="notes()"
+    (input)="onInput($event)"
+  ></textarea>
+  <div class="notes-footer">
+    <span class="char-count">{{ charCount }} characters</span>
+    <span class="hint">Changes auto-saved</span>
+  </div>
+</div>

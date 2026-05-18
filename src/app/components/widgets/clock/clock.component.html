@@ -1,0 +1,8 @@
+<div class="clock-widget">
+  <div class="clock-face">
+    <div class="time">{{ time() | date:'HH:mm:ss' }}</div>
+    <div class="period">{{ time() | date:'a' }}</div>
+  </div>
+  <div class="date">{{ time() | date:'EEEE, MMMM d, y' }}</div>
+  <div class="timezone">{{ time() | date:'zzz' }}</div>
+</div>

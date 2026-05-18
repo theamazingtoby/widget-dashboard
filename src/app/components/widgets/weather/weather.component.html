@@ -1,0 +1,31 @@
+<div class="weather-widget">
+  <div class="weather-main">
+    <div class="weather-icon">{{ weather.icon }}</div>
+    <div class="temp">{{ weather.temp }}<span class="unit">°F</span></div>
+    <div class="condition">{{ weather.condition }}</div>
+    <div class="city">📍 {{ weather.city }}</div>
+  </div>
+
+  <div class="weather-details">
+    <div class="detail-item">
+      <span class="detail-icon">🌡️</span>
+      <span class="detail-label">Feels Like</span>
+      <span class="detail-value">{{ weather.feelsLike }}°</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-icon">💧</span>
+      <span class="detail-label">Humidity</span>
+      <span class="detail-value">{{ weather.humidity }}%</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-icon">💨</span>
+      <span class="detail-label">Wind</span>
+      <span class="detail-value">{{ weather.wind }} mph</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-icon">↕️</span>
+      <span class="detail-label">H / L</span>
+      <span class="detail-value">{{ weather.high }}° / {{ weather.low }}°</span>
+    </div>
+  </div>
+</div>

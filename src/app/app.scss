@@ -1,0 +1,120 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bd-bg);
+  transition: background 0.3s ease;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #3949ab 100%);
+  padding: 0 28px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(26, 35, 126, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+:host-context(html.dark) .app-header {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #1c2128 100%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-logo {
+  font-size: 2rem;
+  color: #7986cb;
+  line-height: 1;
+}
+
+.header-title {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.header-subtitle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 2px 0 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-badge {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.5px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 5px 14px 5px 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  font-family: inherit;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-label {
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+
+  app-dashboard {
+    flex: 1;
+    display: block;
+    min-height: 0;
+  }
+}

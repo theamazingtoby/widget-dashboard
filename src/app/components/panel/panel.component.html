@@ -1,0 +1,31 @@
+<div class="panel-card">
+  <div class="panel-header">
+    <div class="panel-title">
+      <span class="panel-icon">{{ getWidgetIcon() }}</span>
+      <span class="panel-name">{{ getWidgetName() }}</span>
+    </div>
+    <mat-form-field class="widget-selector" appearance="outline" subscriptSizing="dynamic">
+      <mat-select
+        [ngModel]="config.widget"
+        (ngModelChange)="onWidgetChange($event)"
+      >
+        @for (widget of widgets; track widget.type) {
+          <mat-option [value]="widget.type">
+            {{ widget.icon }} {{ widget.name }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="panel-content">
+    @switch (config.widget) {
+      @case ('clock')    { <app-clock />    }
+      @case ('weather')  { <app-weather />  }
+      @case ('notes')    { <app-notes />    }
+      @case ('tasks')    { <app-tasks />    }
+      @case ('stats')    { <app-stats />    }
+      @case ('calendar') { <app-calendar /> }
+    }
+  </div>
+</div>

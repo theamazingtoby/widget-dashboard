@@ -1,0 +1,23 @@
+<div class="calendar-widget">
+  <div class="cal-header">
+    <button class="nav-btn" (click)="prevMonth()">‹</button>
+    <span class="month-label">{{ monthLabel() }}</span>
+    <button class="nav-btn" (click)="nextMonth()">›</button>
+  </div>
+
+  <div class="weekdays">
+    @for (day of weekdays; track day) {
+      <span>{{ day }}</span>
+    }
+  </div>
+
+  <div class="days-grid">
+    @for (day of days(); track $index) {
+      <span
+        class="day"
+        [class.today]="isToday(day)"
+        [class.empty]="!day"
+      >{{ day ?? '' }}</span>
+    }
+  </div>
+</div>

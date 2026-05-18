@@ -1,0 +1,28 @@
+<div class="stats-widget">
+  <div class="stat-bars">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-row">
+        <div class="stat-meta">
+          <span class="stat-label">{{ stat.label }}</span>
+          <span class="stat-value">{{ stat.value }}%</span>
+        </div>
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            [style.width.%]="stat.value"
+            [style.background]="stat.color"
+          ></div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="metrics-grid">
+    @for (metric of metrics; track metric.label) {
+      <div class="metric-card">
+        <span class="metric-value">{{ metric.value }}</span>
+        <span class="metric-label">{{ metric.label }}</span>
+      </div>
+    }
+  </div>
+</div>

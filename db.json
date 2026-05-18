@@ -1,0 +1,31 @@
+{
+  "preferences": [
+    {
+      "id": "1",
+      "panels": [
+        {
+          "id": "panel-1",
+          "position": "top-left",
+          "widget": "calendar"
+        },
+        {
+          "id": "panel-2",
+          "position": "top-right",
+          "widget": "weather"
+        },
+        {
+          "id": "panel-3",
+          "position": "bottom-left",
+          "widget": "weather"
+        },
+        {
+          "id": "panel-4",
+          "position": "bottom-right",
+          "widget": "weather"
+        }
+      ],
+      "theme": "dark"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

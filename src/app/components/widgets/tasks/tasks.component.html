@@ -1,0 +1,32 @@
+<div class="tasks-widget">
+  <div class="add-task">
+    <input
+      class="task-input"
+      [(ngModel)]="newTask"
+      placeholder="Add a new task..."
+      (keyup.enter)="addTask()"
+    />
+    <button class="add-btn" (click)="addTask()" [disabled]="!newTask.trim()">+</button>
+  </div>
+
+  <ul class="task-list">
+    @for (task of tasks(); track task.id) {
+      <li class="task-item" [class.completed]="task.completed">
+        <label class="task-label">
+          <input
+            type="checkbox"
+            class="task-checkbox"
+            [checked]="task.completed"
+            (change)="toggleTask(task.id)"
+          />
+          <span class="task-text">{{ task.text }}</span>
+        </label>
+        <button class="remove-btn" (click)="removeTask(task.id)" title="Remove task">✕</button>
+      </li>
+    }
+  </ul>
+
+  <div class="task-footer">
+    {{ tasks().filter(t => t.completed).length }} / {{ tasks().length }} completed
+  </div>
+</div>

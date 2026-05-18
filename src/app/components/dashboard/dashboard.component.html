@@ -1,0 +1,18 @@
+@if (loading()) {
+  <div class="state-overlay">
+    <mat-spinner diameter="48" />
+    <p>Loading your preferences…</p>
+  </div>
+} @else if (error()) {
+  <div class="state-overlay error">
+    <span class="error-icon">⚠️</span>
+    <p>{{ error() }}</p>
+    <code>npm run server</code>
+  </div>
+} @else if (preferences()) {
+  <div class="dashboard-grid">
+    @for (panel of preferences()!.panels; track panel.id) {
+      <app-panel [config]="panel" (widgetChange)="onWidgetChange($event)" />
+    }
+  </div>
+}

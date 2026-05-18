@@ -1,0 +1,134 @@
+.tasks-widget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+.add-task {
+  display: flex;
+  gap: 8px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid var(--bd-input-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  background: var(--bd-input-bg);
+  color: var(--bd-text-body);
+  transition: border-color 0.2s ease, background 0.3s ease, color 0.3s ease;
+
+  &::placeholder {
+    color: var(--bd-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--bd-accent);
+  }
+}
+
+.add-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--bd-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--bd-accent-hover);
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background: var(--bd-accent-light);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.task-list {
+  flex: 1;
+  list-style: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--bd-item-bg);
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--bd-item-hover);
+
+    .remove-btn {
+      opacity: 1;
+    }
+  }
+
+  &.completed .task-text {
+    text-decoration: line-through;
+    color: var(--bd-text-muted);
+  }
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.task-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--bd-accent);
+}
+
+.task-text {
+  font-size: 0.9rem;
+  color: var(--bd-text-body);
+  transition: color 0.2s ease;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--bd-remove-btn);
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  padding: 2px 4px;
+  border-radius: 4px;
+
+  &:hover {
+    color: var(--bd-remove-btn-hover);
+  }
+}
+
+.task-footer {
+  font-size: 0.8rem;
+  color: var(--bd-text-muted);
+  text-align: center;
+  padding-top: 4px;
+  border-top: 1px solid var(--bd-border-light);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
