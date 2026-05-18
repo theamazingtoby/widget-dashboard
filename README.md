@@ -1,61 +1,81 @@
-# WidgetDashboard
+# Widget Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.
+A customizable Angular dashboard with four panels, each of which can display any of six widgets. Panel preferences and theme choice are persisted to a local JSON backend.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **4 panels** arranged in a 2×2 grid
+- **6 widgets** — Clock, Weather, Notes, Task List, System Stats, Calendar
+- **Per-panel widget picker** — change any panel's widget via a dropdown
+- **Light / dark mode toggle** — persisted across sessions
+- All preferences saved automatically to a `json-server` backend
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Node.js](https://nodejs.org/) v18 or v20–22 (v26+ is not yet supported by Angular)
+- npm (comes with Node)
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Install the Angular CLI and json-server globally if you haven't already:
 
 ```bash
-ng generate --help
+npm install -g @angular/cli json-server
 ```
 
-## Building
+## Getting started
 
-To build the project run:
+**1. Clone the repo and install dependencies**
 
 ```bash
-ng build
+git clone https://github.com/theamazingtoby/widget-dashboard.git
+cd widget-dashboard
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+**2. Start the JSON backend** (in one terminal)
 
 ```bash
-ng test
+npm run server
 ```
 
-## Running end-to-end tests
+This starts `json-server` on `http://localhost:3000`. Your panel layout and theme preference are read from and written to `db.json`.
 
-For end-to-end (e2e) testing, run:
+**3. Start the Angular dev server** (in a second terminal)
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Open `http://localhost:4200` in your browser. The app reloads automatically when you edit source files.
 
-## Additional Resources
+> Both servers must be running at the same time for the app to work correctly.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# widget-dashboard
-# widget-dashboard
+## Available scripts
+
+| Script | Description |
+|---|---|
+| `npm start` | Start the Angular dev server on port 4200 |
+| `npm run server` | Start the json-server backend on port 3000 |
+| `npm run build` | Build for production (output in `dist/`) |
+| `npm test` | Run unit tests with Vitest |
+
+## Resetting preferences
+
+To reset your panel layout and theme back to the defaults, replace the contents of `db.json` with:
+
+```json
+{
+  "preferences": [
+    {
+      "id": "1",
+      "panels": [
+        { "id": "panel-1", "position": "top-left",     "widget": "clock"   },
+        { "id": "panel-2", "position": "top-right",    "widget": "weather" },
+        { "id": "panel-3", "position": "bottom-left",  "widget": "tasks"   },
+        { "id": "panel-4", "position": "bottom-right", "widget": "stats"   }
+      ],
+      "theme": "light"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
+```
